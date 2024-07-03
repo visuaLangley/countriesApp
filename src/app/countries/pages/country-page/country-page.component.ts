@@ -17,8 +17,9 @@ export class CountryPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params
-    .subscribe( ({ id }) => {
-      this.countriesService.searchCountryByAlphaCode(id).subscribe( country => {
+    .subscribe( ({ alphaCode3 }) => {
+      this.countriesService.searchCountryByAlphaCode(alphaCode3)
+      .subscribe( country => {
         console.log({country})
       });
     });
