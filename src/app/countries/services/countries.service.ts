@@ -10,6 +10,14 @@ export class CountryService {
   constructor(private http: HttpClient) {}
   //El constructor inyecta HttpClient para usarlo en las solicitudes HTTP.
 
+  searchCountryByAlphaCode(code : string) : Observable<Country[]>{
+    const url = `${this.apiUrl}/alpha/${code}`;
+    return this.http.get<Country[]>(url)
+    .pipe(
+      catchError( error => of([]))
+    );
+  }
+
 
   searchCapital(term: string): Observable<Country[]> {
     const url = `${this.apiUrl}/capital/${term}`;
