@@ -1,1 +1,70 @@
-<p>country-page works!</p>
+<ng-template #loading>
+  <div class="alert alert-info text text-center">Espere por favor</div>
+</ng-template>
+
+<div *ngIf="pais; else loading">
+  <div class="row">
+    <div class="col-12">
+      <h2>
+        Pais: <strong>{{ pais.name.common }}</strong>
+      </h2>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-4">
+      <h3>Bandera</h3>
+      <img [src]="pais.flags.svg" [alt]="pais.name.common" class="img-thumbnail"/>
+    </div>
+    <div class="col">
+      <h3>Información</h3>
+      <ul class="list-group">
+        <li class="list-group-item">
+          <strong>Población:</strong> {{pais.population | number}}
+        </li>
+
+        <li class="list-group-item">
+          <strong>Código:</strong> {{pais.cca3}}
+        </li>
+      </ul>
+
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="col">
+      <h3>Traducciones</h3>
+
+      <div class="d-flex flex-wrap">
+        <span class="badge bg-primary m-1">{{pais.translations['ara']?.common}}</span>
+        <span class="badge bg-primary m-1">{{pais.translations['bre']?.common}}</span>
+        <span class="badge bg-primary m-1">{{pais.translations['ces']?.common}}</span>
+        <span class="badge bg-primary m-1">{{pais.translations['cym']?.common}}</span>
+        <span class="badge bg-primary m-1">{{pais.translations['deu']?.common}}</span>
+        <span class="badge bg-primary m-1">{{pais.translations['est']?.common}}</span>
+        <span class="badge bg-primary m-1">{{pais.translations['fin']?.common}}</span>
+        <span class="badge bg-primary m-1">{{pais.translations['jpn']?.common}}</span>
+        <span class="badge bg-primary m-1">{{pais.translations['ita']?.common}}</span>
+        <span class="badge bg-primary m-1">{{pais.translations['kor']?.common}}</span>
+        <span class="badge bg-primary m-1">{{pais.translations['spa']?.common}}</span>
+        <span class="badge bg-primary m-1">{{pais.translations['pol']?.common}}</span>
+        <span class="badge bg-primary m-1">{{pais.translations['por']?.common}}</span>
+        <span class="badge bg-primary m-1">{{pais.translations['rus']?.common}}</span>
+        <span class="badge bg-primary m-1">{{pais.translations['slk']?.common}}</span>
+        <span class="badge bg-primary m-1">{{pais.translations['per']?.common}}</span>
+        <span class="badge bg-primary m-1">{{pais.translations['srp']?.common}}</span>
+        <span class="badge bg-primary m-1">{{pais.translations['swe']?.common}}</span>
+        <span class="badge bg-primary m-1">{{pais.translations['tur']?.common}}</span>
+        <span class="badge bg-primary m-1">{{pais.translations['urd']?.common}}</span>
+        <span class="badge bg-primary m-1">{{pais.translations['zho']?.common}}</span>
+
+
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
